@@ -1,0 +1,44 @@
+version: "2.1"
+
+services:
+  nginx:
+    build: ./docker/nginx/
+    ports:
+      - 80:80
+    volumes:
+      - "${PROJECT_ROOT}:/var/www/html:ro"
+    networks:
+      - server
+    depends_on:
+      - php
+
+  php:
+    build: ./docker/php/
+    expose:
+      - 9000
+    volumes:
+      - "${PROJECT_ROOT}:/var/www/html"
+    networks:
+      - database
+      - server
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - data:/var/lib/mysql
+    networks:
+      - database
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USERNAME}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+
+volumes:
+  data:
+
+networks:
+  database:
+  server:
