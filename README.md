@@ -3,6 +3,7 @@
 
 ## How to Use
  - Download the repository
+ - `$ composer install`
  - Create a `.env` file by copying `.env.example` and set the database credentials
  - `$ bin/docker-up`
  - Open [http://localhost](http://localhost) in your browser (you may have to wait a few seconds for the mysql container to ready up)
