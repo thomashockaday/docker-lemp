@@ -10,10 +10,15 @@
 
 <?php
 
-$host = "mysql";
-$database = "base";
-$user = "root";
-$password = "password";
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
+$dotenv->load();
+
+$host = getenv('MYSQL_HOST');
+$database = getenv('MYSQL_NAME');
+$user = getenv('MYSQL_USER');
+$password = getenv('MYSQL_ROOT_PASSWORD');
 
 $connection = new PDO("mysql:host={$host};dbname={$database};charset=utf8", $user, $password);
 $query = $connection->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE='BASE TABLE'");
