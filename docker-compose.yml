@@ -27,11 +27,10 @@ services:
 
   mysql:
     image: mysql:latest
-    expose:
-      - 3306
+    ports:
+      - 3306:3306
     volumes:
       - data:/var/lib/mysql
-      - .:/opt
     networks:
       - database
     environment:
