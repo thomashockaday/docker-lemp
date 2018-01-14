@@ -34,9 +34,9 @@ services:
     networks:
       - database
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${DB_NAME}"
-      MYSQL_PASSWORD: "${DB_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_NAME}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
 
 volumes:
   data:
