@@ -18,17 +18,17 @@ $user = getenv('MYSQL_USER');
 $password = getenv('MYSQL_ROOT_PASSWORD');
 
 $connection = new PDO("mysql:host={$host};dbname={$database};charset=utf8", $user, $password);
-$query = $connection->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE='BASE TABLE'");
-$tables = $query->fetchAll(PDO::FETCH_COLUMN);
+$query = $connection->query("SELECT `migration_name` FROM `phinxlog`");
+$migrations = $query->fetchAll(PDO::FETCH_COLUMN);
 
-if (empty($tables)) {
-  echo "<p>There are no tables in database \"{$database}\".</p>";
+if (empty($migrations)) {
+  echo "<p>There are no migrations in database \"{$database}\".</p>";
 } else {
-  echo "<p>Database \"{$database}\" has the following tables:</p>";
+  echo "<p>Database \"{$database}\" has the following migrations:</p>";
   echo "<ul>";
 
-  foreach ($tables as $table) {
-    echo "<li>{$table}</li>";
+  foreach ($migrations as $migration) {
+    echo "<li>{$migration}</li>";
   }
 
   echo "</ul>";
