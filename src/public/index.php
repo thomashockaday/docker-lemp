@@ -10,10 +10,7 @@
 
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
-$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
-$dotenv->load();
+require __DIR__ . '/../bootstrap.php';
 
 $host = getenv('MYSQL_HOST');
 $database = getenv('MYSQL_NAME');
