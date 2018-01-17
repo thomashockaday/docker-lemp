@@ -24,6 +24,7 @@ services:
       - server
     depends_on:
       - mysql
+    working_dir: /opt
 
   mysql:
     image: mysql:latest
