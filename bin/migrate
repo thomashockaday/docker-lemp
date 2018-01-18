@@ -1,0 +1,3 @@
+#!/bin/bash
+
+php /opt/src/vendor/bin/phinx migrate
