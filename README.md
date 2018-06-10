@@ -1,5 +1,5 @@
 # Docker LEMP
-#### A minimal docker structure for running NGINX, PHP (with PDO) and MySQL
+#### A minimal docker structure for running NGINX, PHP (with PDO) and MySQL.
 
 ## How to Use
  - Download the repository
